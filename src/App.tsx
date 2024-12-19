@@ -1,11 +1,17 @@
-import {ReactNode, useRef} from 'react';
+import {ReactNode, useState} from 'react';
+import IframeItem from "./iframe";
+import * as _ from "lodash";
 
 const App = (): ReactNode => {
-    const ref = useRef(crypto.randomUUID());
+    const [times, setTimes] = useState(1)
     return (
         <div>
-            <iframe width={420} height={1200}
-                    src={`https://iframe.kion.neurotales.ipst-dev.com/mainGeneration?iframe=true&user_id=${ref.current}`}></iframe>
+            <input type="number"  className='bg-gray-700 p-2 text-white absolute' value={times} onChange={e => setTimes(Number(e.target.value))}/>
+
+            <div className='flex flex-row'>
+                {_.times(times).map((_, index) => <IframeItem key={index}/>)}
+
+            </div>
         </div>
     );
 };
