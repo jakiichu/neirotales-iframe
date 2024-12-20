@@ -8,7 +8,7 @@ const App = (): ReactNode => {
         <div>
             <input type="number"  className='bg-gray-700 p-2 text-white absolute' value={times} onChange={e => setTimes(Number(e.target.value))}/>
 
-            <div className='flex flex-row'>
+            <div className='flex flex-row flex-wrap'>
                 {_.times(times).map((_, index) => <IframeItem key={index}/>)}
 
             </div>
