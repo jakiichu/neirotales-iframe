@@ -15,7 +15,7 @@ const IframeFullGenerationItem = (): ReactNode => {
     return (
         <div>
             <iframe width={420} height={800}
-                    src={`https://iframe.kion.neurotales.ipst-dev.com/mainGeneration?iframe=true&theme=dark&user_id=404`}/>
+                    src={`https://iframe.kion.neurotales.dev.ipst-dev.com/mainGeneration?iframe=true&theme=dark&user_id=404`}/>
         </div>
     );
 };
