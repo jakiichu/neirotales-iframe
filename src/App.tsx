@@ -1,20 +1,26 @@
 import {ReactNode, useState} from 'react';
 import IframeItem from "./iframe";
-import * as _ from "lodash";
 import getParamsHook from "./utils/params";
 import IframeFullGenerationItem from "./iframe/full-generation";
+import {times} from "lodash";
+
+interface IPageParams{
+    test: string
+}
+const initialStateTimesItems = 1
 
 const App = (): ReactNode => {
-    const [times, setTimes] = useState(1)
-    const {test} = getParamsHook<{test: string}>()
+    const [timesItems, setTimesItems] = useState(initialStateTimesItems)
+    const {test} = getParamsHook<IPageParams>()
+
     return (
-        test ? <div><IframeFullGenerationItem/></div>
+        test ? <IframeFullGenerationItem/>
             : <div>
-                <input type="number" className='bg-gray-700 p-2 text-white absolute' value={times}
-                       onChange={e => setTimes(Number(e.target.value))}/>
+                <input type="number" className='bg-gray-700 p-2 text-white absolute' value={timesItems}
+                       onChange={e => setTimesItems(Number(e.target.value))}/>
 
                 <div className='flex flex-row flex-wrap'>
-                    {_.times(times).map((_, index) => <IframeItem key={index}/>)}
+                    {times(timesItems).map((_, index) => <IframeItem key={index}/>)}
 
                 </div>
             </div>

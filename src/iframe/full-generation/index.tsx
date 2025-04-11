@@ -1,4 +1,6 @@
 import {ReactNode, useEffect} from 'react';
+import IframeItem from "../index.tsx";
+import {DEV_FRONT} from "../../constant/route";
 
 const IframeFullGenerationItem = (): ReactNode => {
     useEffect(() => {
@@ -14,8 +16,7 @@ const IframeFullGenerationItem = (): ReactNode => {
     }, []);
     return (
         <div>
-            <iframe width={420} height={800}
-                    src={`https://iframe.kion.neurotales.dev.ipst-dev.com/mainGeneration?iframe=true&theme=dark&user_id=404`}/>
+            <IframeItem asd={DEV_FRONT}/>
         </div>
     );
 };
