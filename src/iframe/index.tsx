@@ -19,7 +19,7 @@ const IframeItem = memo(({url = PROD_FRONT}: IIframeItem): ReactNode => {
     })
     return (
         <div>
-            <iframe sandbox={sandbox} width={420} height={800}
+            <iframe style={{backgroundColor: '#163053'}} sandbox={sandbox} width={420} height={800}
                     src={`${url}/mainGeneration?${params.toString()}`}/>
         </div>
     );
