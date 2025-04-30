@@ -15,9 +15,7 @@ const IframeFullGenerationItem = (): ReactNode => {
         };
     }, []);
     return (
-        <div>
             <IframeItem url={DEV_FRONT}/>
-        </div>
     );
 };
 

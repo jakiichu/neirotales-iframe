@@ -20,8 +20,8 @@ const IframeItem = memo(({url = PROD_FRONT}: IIframeItem): ReactNode => {
         theme: "dark"
     })
     return (
-        <div>
-            <iframe style={{backgroundColor: '#163053'}} sandbox={sandbox} width={Number(width)} height={Number(height)}
+        <div className='flex justify-center py-8 *:rounded-2xl min-h-screen h-screen grow '>
+            <iframe className='h-full min-h-full' sandbox={sandbox} width={Number(width)} height={Number(height)}
                     src={`${url}/mainGeneration?${params.toString()}`}/>
         </div>
     );
