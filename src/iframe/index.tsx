@@ -7,10 +7,12 @@ interface IIframeItem{
 }
 interface IPageParams{
     sandbox?: string
+    width?: string
+    height?: string
 }
 const IframeItem = memo(({url = PROD_FRONT}: IIframeItem): ReactNode => {
     const ref = useRef(crypto.randomUUID());
-    const {sandbox} = getParamsHook<IPageParams>()
+    const {sandbox, height=420, width=800} = getParamsHook<IPageParams>()
 
    const params =  new URLSearchParams({
         iframe: "true",
@@ -19,7 +21,7 @@ const IframeItem = memo(({url = PROD_FRONT}: IIframeItem): ReactNode => {
     })
     return (
         <div>
-            <iframe style={{backgroundColor: '#163053'}} sandbox={sandbox} width={420} height={800}
+            <iframe style={{backgroundColor: '#163053'}} sandbox={sandbox} width={Number(width)} height={Number(height)}
                     src={`${url}/mainGeneration?${params.toString()}`}/>
         </div>
     );
